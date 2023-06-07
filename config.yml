@@ -45,6 +45,6 @@ OCR_MODEL_URLS:
 # List of URLs for OCR models
 
 BLACKLIST_WORDS:
-
+  - loli
   
 # Blacklisted words for /Imagine command
