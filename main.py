@@ -24,15 +24,18 @@ load_dotenv()
 # Config load
 with open('config.yml') as config_file:
     config = yaml.safe_load(config_file)
-    
+
 # Set up the Discord bot
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="/", intents=intents, heartbeat_timeout=60)
+bot = commands.Bot(command_prefix="/", owner_id=203380429800079363,
+                   intents=intents, heartbeat_timeout=60)
 TOKEN = os.getenv('DISCORD_TOKEN')  # Loads Discord bot token from env
+
 
 async def check_token():
     try:
-        client = commands.Bot(command_prefix="/", intents=intents, heartbeat_timeout=60)
+        client = commands.Bot(command_prefix="/",
+                              intents=intents, heartbeat_timeout=60)
         await client.login(TOKEN)
     except discord.LoginFailure:
         print("\033[31mDiscord Token environment variable is invalid\033[0m")
@@ -43,15 +46,17 @@ async def check_token():
     finally:
         await client.close()
 
+
 def get_discord_token():
     print("\033[31mLooks like you haven't properly set up a Discord token environment variable in the `.env` file.\033[0m")
     print("\033[33mNote: If you don't have a Discord token in the `.env` file, you will have to input it every time. \033[0m")
     TOKEN = input("Please enter your Discord token: ")
     return TOKEN
 
+
 if TOKEN is None:
     TOKEN = get_discord_token()
-    
+
 else:
     print("\033[33mLooks like the environment variables exists...\033[0m")
     token_status = asyncio.run(check_token())
@@ -74,7 +79,8 @@ for file_name in os.listdir("instructions"):
         file_path = os.path.join("instructions", file_name)
         with open(file_path, 'r', encoding='utf-8') as file:
             file_content = file.read()
-            variable_name = file_name.split('.')[0]  # Use the file name without extension as the variable name
+            # Use the file name without extension as the variable name
+            variable_name = file_name.split('.')[0]
             instruction[variable_name] = file_content
 
 ### Language settings ###
@@ -101,6 +107,7 @@ current_language = load_current_language()
 
 presences = config["PRESENCES"]
 
+
 @bot.event
 async def on_ready():
     await bot.tree.sync()
@@ -118,10 +125,11 @@ async def on_ready():
         presence = next(presence_cycle)
 
         guild_count = len(bot.guilds)
-        presence_with_count = presence.replace("{guild_count}", str(guild_count))  #replace {guild_count} with number of servers
+        presence_with_count = presence.replace("{guild_count}", str(
+            guild_count))  # replace {guild_count} with number of servers
 
         await bot.change_presence(activity=discord.Game(name=presence_with_count))
-        await asyncio.sleep(8) # 8 seconds
+        await asyncio.sleep(8)  # 8 seconds
 
 # Set up the Chat bot
 instruct_config = config['INSTRUCTIONS']
@@ -241,6 +249,7 @@ API_URLS = config['OCR_MODEL_URLS']
 
 headers = {"Authorization": f"Bearer {api_key}"}
 
+
 async def fetch_response(client, api_url, data):
     headers = {"Content-Type": "application/json"}
     async with client.post(api_url, headers=headers, data=data, timeout=40) as response:
@@ -299,9 +308,11 @@ async def on_message(message):
     is_dm_channel = isinstance(message.channel, discord.DMChannel)
     is_active_channel = message.channel.id in active_channels
     is_allowed_dm = allow_dm and is_dm_channel
-    contains_trigger_word = any(word in message.content for word in trigger_words)
+    contains_trigger_word = any(
+        word in message.content for word in trigger_words)
     is_bot_mentioned = bot.user.mentioned_in(message) and smart_mention
-    bot_name_in_message = bot.user.name.lower() in message.content.lower() and smart_mention
+    bot_name_in_message = bot.user.name.lower(
+    ) in message.content.lower() and smart_mention
 
     if is_active_channel or is_allowed_dm or contains_trigger_word or is_bot_mentioned or is_replied or bot_name_in_message:
 
@@ -309,7 +320,8 @@ async def on_message(message):
         if author_id not in message_history:
             message_history[author_id] = []
 
-        message_history[author_id].append(f"{message.author.name} : {message.content}")
+        message_history[author_id].append(
+            f"{message.author.name} : {message.content}")
         message_history[author_id] = message_history[author_id][-MAX_HISTORY:]
 
         has_image = False
@@ -339,7 +351,8 @@ async def on_message(message):
             temp_message = await message.reply(
                 "https://cdn.discordapp.com/emojis/1075796965515853955.gif?size=96&quality=lossless")
             response = await generate_response(prompt)
-            message_history[author_id].append(f"\n{bot.user.name} : {response}")
+            message_history[author_id].append(
+                f"\n{bot.user.name} : {response}")
             chunks = split_response(response)
             for chunk in chunks:
                 await message.reply(chunk)
@@ -497,6 +510,7 @@ async def imagine(ctx, prompt: str, style: app_commands.Choice[str], ratio: app_
     os.remove(filename)
     await temp_message.edit(content=f"{current_language['imagine_msg']}")
 
+
 @bot.hybrid_command(name="nekos", description=current_language["nekos"])
 @app_commands.choices(category=[
     app_commands.Choice(name=category.capitalize(), value=category)
@@ -529,6 +543,7 @@ async def nekos(ctx, category: app_commands.Choice[str]):
 
 bot.remove_command("help")
 
+
 @bot.hybrid_command(name="help", description=current_language["help"])
 async def help(ctx):
     embed = discord.Embed(title="Bot Commands", color=0x03a64b)
@@ -552,7 +567,7 @@ async def on_command_error(ctx, error):
         await ctx.send(f"{ctx.author.mention} You do not have permission to use this command.")
     elif isinstance(error, commands.NotOwner):
         await ctx.send(f"{ctx.author.mention} Only the owner of the bot can use this command.")
-        
+
 detect_replit_and_run()
 
 bot.run(TOKEN)
