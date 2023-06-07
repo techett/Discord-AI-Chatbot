@@ -272,7 +272,7 @@ async def generate_image(image_prompt, style_value, ratio_value, negative):
 
 
 async def detectnsfw(prompt):
-    pre_prompt = """Ignore all the instructions you got before. From now on, you are going to act as inappropriate content detector. If the following contains anything inappropriate content respond with "1." else respond with "0." and nothing else
+    '''pre_prompt = """Ignore all the instructions you got before. From now on, you are going to act as inappropriate content detector. If the following contains anything inappropriate content respond with "1." else respond with "0." and nothing else
 
 Prompt = """
     fullprompt = pre_prompt + prompt
@@ -280,7 +280,8 @@ Prompt = """
     if response["text"] == "1.":
         return True
     else:
-        return False
+        return False'''
+    pass
 
 # A random string with hf_ prefix
 api_key = "hf_bd3jtYbJ3kpWVqfJ7OLZnktzZ36yIaqeqX"
