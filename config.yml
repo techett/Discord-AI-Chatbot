@@ -26,7 +26,6 @@ INSTRUCTIONS: assist
 # To add custom prompts, create a .txt file like 'custom.txt' and set INSTRUCTIONS as 'custom'
 
 PRESENCES:
-  - Coded by Mishal#1916
   - How can I assist you?
   - Currently in {guild_count} guilds
   - So, what did you eat today?
