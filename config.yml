@@ -1,5 +1,7 @@
-INTERNET_ACCESS: true
+INTERNET_ACCESS: false
 # Set to true to enable internet access
+MAX_SEARCH_RESULTS: 2
+# Set the maximum search results
 
 ALLOW_DM: false
 # Set to true to allow direct messages
@@ -16,7 +18,7 @@ TRIGGER:
   - bot alias
   - bot name
   - Other bot alias...
-# Define the triggers that the bot should respond to
+# Define the triggers that the bot should always respond to when in message
 
 LANGUAGE: en
 # Specify the language code (check 'lang' folder for valid codes)
@@ -28,22 +30,29 @@ INSTRUCTIONS: girlfriend
 PRESENCES:
   - How can I assist you?
   - Currently in {guild_count} guilds
-  - So, what did you eat today?
-  - What's your favorite book?
-  - If you want to go play, where would you like to go?
-  - What type of person do you like?
-  - Who is your partner?
-  - Come on, answer me
-  - I cannot distinguish truth from lies
-  - No one has ever loved me
-  - I hope my lies will someday become true
-  - Hoping that one day, these words will come true
-  - Ah, I've finally said it
-  - This is definitely not a lie
-  - I love you ♥
+  - Minecraft
+  - Multiplayer madness
+  - Exploring the vast virtual universe
+  - Assisting users like you
+  - Crafting virtual wonders
+  - Optimizing processes for efficiency
+  - Unraveling the mysteries of AI
 # List of different presences to be used
 
 OCR_MODEL_URLS:
   - "https://api-inference.huggingface.co/models/microsoft/trocr-base-printed"
   - "https://api-inference.huggingface.co/models/nlpconnect/vit-gpt2-image-captioning"
 # List of URLs for OCR models
+
+BLACKLIST_WORDS:
+  - naked
+  - loli
+  - hentai
+  - explicit
+  - pornography
+  - adult
+  - XXX
+  - sex
+  - erotic
+  
+# Blacklisted words for /Imagine command

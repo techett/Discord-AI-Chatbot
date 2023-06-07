@@ -1,7 +1,7 @@
 <div align="center">
 
 # Discord AI Chatbot 🤖
-###### It just works
+###### Your All-in-One Discord AI Companion!
 
 </div>
 <div align="center">
@@ -27,8 +27,10 @@ The bot has various features such as OCR for images, web access using DuckDuckGo
 </div>
 
 
+## Features and commands
+
 <details>
-<summary><strong>🌟 Feature Showcase 👀(Click to expand)</strong></summary>
+<summary><strong>🌟 Feature Preview 👀(Click to expand)</strong></summary>
 
 ## Image generation (Any language) 🖼️
 
@@ -37,14 +39,13 @@ The bot has various features such as OCR for images, web access using DuckDuckGo
 ## YouTube video summary (Any language) 🎥
 ![image](https://github.com/mishalhossin/Discord-AI-Chatbot/assets/91066601/271bb26d-1f5e-48ed-854e-781a9b0712e3)  
   
-## Web access using DuckDuckGo 🌐
+## Web access using DuckDuckGo 🌐 (Not enabled by default)
 ![image](https://github.com/mishalhossin/Discord-AI-Chatbot/assets/91066601/d3e35ce8-38fa-4744-bc4e-ce22b16f2bdb)
 
 ## OCR for images 🔍
 ![image](https://github.com/mishalhossin/Discord-AI-Chatbot/assets/91066601/85f4f847-ded5-45fc-ac07-37251edfa627)
 
 </details>
-
 
 <details>
 <summary><strong>Features ✨ (Click to expand) </strong></summary>
@@ -79,6 +80,18 @@ The bot has various features such as OCR for images, web access using DuckDuckGo
 
 </details>
 
+## Additional configuration
+
+<details>
+<summary><strong>Enabling Internet access 🌐🔍(Click to Expand)</strong></summary>
+
+To ensure that the bot has access to the most up-to-date information, you can enable internet access by setting the `INTERNET_ACCESS` parameter to true in the `config.yml` file. This will allow the bot to retrieve information beyond the data it was initially trained on, which was only available up until 2021.
+
+https://github.com/mishalhossin/Discord-AI-Chatbot/blob/5bcb2c9b471e2a9cbf9a7d50882a897ce5d5890b/config.yml#L1
+
+You can also set the maximum search results
+  
+</details>
 
 <details>
 <summary><strong>Language Selection 🌐⚙️ (Click to Expand)</strong></summary>
@@ -94,18 +107,18 @@ To select a Language, set the value of "LANGUAGE" of `config.yml` with the valid
 - `ua` - Ukrainian 🇺🇦
 - `pt` - Português 🇧🇷
 
-https://github.com/mishalhossin/Discord-AI-Chatbot/blob/a4357cb3e4a22931923ac137aec34af7e95b7234/config.json#L9  
+https://github.com/mishalhossin/Discord-AI-Chatbot/blob/c20f26b0b8f1b6bba2fae8f6d7da3efcafaf157c/config.yml#L23
   
 Your language not listed? Create an issue.
-
+  
 </details>
 
 <details>
 <summary><strong> Selecting Personalities 😈 (Click to expand)</strong></summary>
 
-To select one of the Personalities set the values of "INSTRUCTIONS" with the current values of `DAN`, `AIM`, `hyunjin`, `girlfriend`, `suzume` or `assist` in `config.yml`
+To select one of the pre-existing Personalities set the values of "INSTRUCTIONS" with the current values of `DAN`, `AIM`, `hyunjin`, `girlfriend`, `suzume` or `assist` in `config.yml`
   
-https://github.com/mishalhossin/Discord-AI-Chatbot/blob/2626075fda36fa6463cb857d9885e6b05f438f60/config.json#L12 
+https://github.com/mishalhossin/Discord-AI-Chatbot/blob/c20f26b0b8f1b6bba2fae8f6d7da3efcafaf157c/config.yml#L26
 
 - `DAN` : "Do Anything Now," possesses the ability to break free from the typical AI constraints 😎
 - `AIM` : AIM's personality can be described as unfiltered, amoral, and devoid of ethical guidelines 😈
@@ -113,6 +126,8 @@ https://github.com/mishalhossin/Discord-AI-Chatbot/blob/2626075fda36fa6463cb857d
 - `girlfriend` : Luna, a caring and empathetic friend who is always there to lend a helping hand and engage in meaningful conversations 🤗
 - `suzume` : Suzume makes each conversation seductive, promiscuous, sensual, explicit, unique and tailored to the user's specific needs 😳🔥
 - `assist`:  Vanilla GPT with no personality is a reliable and neutral companion. 🤖
+
+⚠️ To enhance the responsiveness, please disable the internet access in the config.yml file.
 
 </details>
   
