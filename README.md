@@ -158,12 +158,22 @@ cd Discord-AI-Chatbot
 ```
 DISCORD_TOKEN=token_from_step_3
 ```
-### Step 5. 🚀 Run the bot
+
+### Step 5. 🔐 Set your owner ID
+1. Make sure Developer Mode is enabled.
+2. Right/Secondary click your name/picture
+3. Click "Copy User ID"
+4. Replace the "your_user_id" with your own ID.
+'''
+DISCORD_OWNER_ID=your_user_id
+'''
+
+### Step 6. 🚀 Run the bot
 ```
 python main.py
 ```
 #### You may need to run as admin if you are on windows
-### Step 6. 🔗 Invite the bot 
+### Step 7. 🔗 Invite the bot 
 You can Invite your bot using the link in console
 ![image](https://user-images.githubusercontent.com/91066601/236673317-64a1789c-f6b1-48d7-ba1b-dbb18e7d802a.png)
 

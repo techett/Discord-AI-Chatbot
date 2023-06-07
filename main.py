@@ -27,7 +27,7 @@ with open('config.yml') as config_file:
 
 # Set up the Discord bot
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="/", owner_id=203380429800079363,
+bot = commands.Bot(command_prefix="/", OWNER_ID=os.getenv('OWNER'),
                    intents=intents, heartbeat_timeout=60)
 TOKEN = os.getenv('DISCORD_TOKEN')  # Loads Discord bot token from env
 
