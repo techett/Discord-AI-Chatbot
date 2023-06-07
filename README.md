@@ -160,7 +160,7 @@ DISCORD_TOKEN=token_from_step_3
 ```
 
 ### Step 5. 🔐 Set your owner ID
-1. Make sure Developer Mode is enabled.
+1. Make sure Developer Mode is enabled in Discord settings.
 2. Right/Secondary click your name/picture
 3. Click "Copy User ID"
 4. Replace the "your_user_id" with your own ID.
