@@ -45,14 +45,6 @@ OCR_MODEL_URLS:
 # List of URLs for OCR models
 
 BLACKLIST_WORDS:
-  - naked
-  - loli
-  - hentai
-  - explicit
-  - pornography
-  - adult
-  - XXX
-  - sex
-  - erotic
+
   
 # Blacklisted words for /Imagine command
