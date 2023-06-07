@@ -21,7 +21,7 @@ TRIGGER:
 LANGUAGE: en
 # Specify the language code (check 'lang' folder for valid codes)
 
-INSTRUCTIONS: assist
+INSTRUCTIONS: AIM
 # Specify the instruction prompt to use (check 'instruction' folder for valid prompts)
 # To add custom prompts, create a .txt file like 'custom.txt' and set INSTRUCTIONS as 'custom'
 
