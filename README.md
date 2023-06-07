@@ -164,9 +164,9 @@ DISCORD_TOKEN=token_from_step_3
 2. Right/Secondary click your name/picture
 3. Click "Copy User ID"
 4. Replace the "your_user_id" with your own ID.
-'''
+```
 DISCORD_OWNER_ID=your_user_id
-'''
+```
 
 ### Step 6. 🚀 Run the bot
 ```
